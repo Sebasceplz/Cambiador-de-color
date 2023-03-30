@@ -1,0 +1,89 @@
+
+from tkinter import*
+from PIL import ImageTk,Image
+from tkinter import messagebox as MessageBox
+from tkinter import colorchooser as ColorChooser
+
+root=Tk()
+root.title("Ejercicio A")
+root.geometry("450x800")
+ventanaprincipal=Frame(root,width=1000,height=1000,bg="gray")
+ventanaprincipal.grid()
+
+
+def color():
+    respuesta=(ColorRojo.get()+ColorVerde.get()+ColorAzul.get())
+    respuesta2=(len(respuesta))
+
+    if(respuesta2==6): ##len= cuenta el numero de caracteres o numeros ingresados
+        ventanaprincipal.config(bg=("#"+respuesta))
+        pass
+    else:
+         MessageBox.showwarning("Alerta","Limite de caracteres excedido")
+
+
+
+
+
+
+##############################################################################################################
+Titulo=Label(ventanaprincipal,
+             text="CAMBIAR COLORES",
+             font=("Times",14,"bold"),
+             background="gray",#color de fondo
+             foreground="black", #color de letras
+             width=20,#espacios en X
+             height=2, #espacios en Y
+             
+             #anchor=N, #mover a los lados
+             justify=CENTER,
+             
+            ).place(x=115,y=1)
+RED=Label(ventanaprincipal,
+             text="Red",
+             font=("Times",14,"bold"),
+             background="gray",#color de fondo
+             foreground="red", #color de letras
+             width=8,#espacios en X
+             height=2, #espacios en Y
+             
+             #anchor=N, #mover a los lados
+             justify=CENTER,
+             
+            ).place(x=1,y=100)
+ColorRojo=StringVar()
+EntryRojo=Entry(ventanaprincipal,font=("Times",12),textvariable=ColorRojo).place(x=160,y=110)
+GREEN=Label(ventanaprincipal,
+             text="Green",
+             font=("Times",14,"bold"),
+             background="gray",#color de fondo
+             foreground="green", #color de letras
+             width=8,#espacios en X
+             height=2, #espacios en Y
+             
+             #anchor=N, #mover a los lados
+             justify=CENTER,
+             
+            ).place(x=1,y=200)
+ColorVerde=StringVar()
+EntryVerde=Entry(ventanaprincipal,font=("Times",12),textvariable=ColorVerde).place(x=160,y=210)
+BLUE=Label(ventanaprincipal,
+             text="Blue",
+             font=("Times",14,"bold"),
+             background="gray",#color de fondo
+             foreground="blue", #color de letras
+             width=8,#espacios en X
+             height=2, #espacios en Y
+             
+             #anchor=N, #mover a los lados
+             justify=CENTER,
+             
+            ).place(x=1,y=300)
+ColorAzul=StringVar()
+EntryAzul=Entry(ventanaprincipal,font=("Times",12),textvariable=ColorAzul).place(x=160,y=310)
+ButtonRegistrar=Button(ventanaprincipal,font=("Times",14,"bold"),text="Aplicar color",command=color).place(x=160,y=400)
+
+
+
+
+root.mainloop()
